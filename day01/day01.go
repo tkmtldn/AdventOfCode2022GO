@@ -58,9 +58,9 @@ func main() {
 		maxCalories = currentCalories
 	}
 
-	fmt.Printf("First answer: : %v \n", maxCalories)
+	fmt.Printf("First answer: %v \n", maxCalories)
 
 	sort.Ints(allCals)
 	topThree := allCals[len(allCals)-1] + allCals[len(allCals)-2] + allCals[len(allCals)-3]
-	fmt.Printf("Second answer: : %v \n", topThree)
+	fmt.Printf("Second answer: %v \n", topThree)
 }
