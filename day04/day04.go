@@ -4,6 +4,8 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strconv"
+	"strings"
 )
 
 func GetStrings(path string) []string {
@@ -34,7 +36,26 @@ func check(e error) {
 
 func main() {
 	data := GetStrings("./day04/input04.txt")
+	answer1 := 0
+	answer2 := 0
+	for _, v := range data {
+		str := strings.Replace(v, ",", " ", 1)
+		str = strings.Replace(str, "-", " ", -1)
+		s := strings.Split(str, " ")
 
-	fmt.Printf("First answer: %v \n", totalScore)
-	fmt.Printf("Second answer: %v \n", totalScore2)
+		ints := []int{}
+		for _, v := range s {
+			i, _ := strconv.Atoi(v)
+			ints = append(ints, i)
+		}
+
+		if (ints[2] <= ints[0] && ints[3] >= ints[1]) || (ints[2] >= ints[0] && ints[1] >= ints[3]) {
+			answer1++
+		}
+		if ints[2] <= ints[1] && ints[0] <= ints[3] {
+			answer2++
+		}
+	}
+	fmt.Printf("First answer: %v \n", answer1)
+	fmt.Printf("Second answer: %v \n", answer2)
 }

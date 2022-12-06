@@ -47,7 +47,6 @@ func game1(opp int, you int) int {
 func game2(opp int, you int) int {
 	you -= 87
 	opp -= 64
-	fmt.Println(opp, you)
 	if you == 2 {
 		return 3 + opp
 	} else if you == 1 {
